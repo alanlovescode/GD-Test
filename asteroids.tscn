@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2d0jkadqd6qv"]
+
+[ext_resource type="Texture2D" uid="uid://djybigrduaqgj" path="res://Assets/asteroid.svg" id="1_hpl3h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y2sv2"]
+radius = 105.7
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g0dya"]
+radius = 105.7
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Asteroid" type="Sprite2D" parent="."]
+position = Vector2(397, 122)
+texture = ExtResource("1_hpl3h")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Asteroid"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid/StaticBody2D"]
+shape = SubResource("CircleShape2D_y2sv2")
+
+[node name="Asteroid2" type="Sprite2D" parent="."]
+position = Vector2(801, 517)
+texture = ExtResource("1_hpl3h")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Asteroid2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid2/StaticBody2D"]
+shape = SubResource("CircleShape2D_g0dya")
+
+[node name="Asteroid3" type="Sprite2D" parent="."]
+position = Vector2(902, 152)
+texture = ExtResource("1_hpl3h")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Asteroid3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid3/StaticBody2D"]
+shape = SubResource("CircleShape2D_g0dya")

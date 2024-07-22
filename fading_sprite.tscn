@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck44t8hj6lw3d"]
+
+[ext_resource type="Texture2D" uid="uid://ctdo2srl3fop4" path="res://GhostTrail/Alien/alienGreen_stand.png" id="1_wmhnk"]
+[ext_resource type="Script" path="res://FadingSprite.gd" id="2_3i4m5"]
+
+[node name="FadingSprite" type="Sprite2D"]
+position = Vector2(275, 58)
+texture = ExtResource("1_wmhnk")
+script = ExtResource("2_3i4m5")
