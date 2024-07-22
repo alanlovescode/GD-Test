@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://812rlcwngnur"]
+
+[ext_resource type="PackedScene" uid="uid://b4oxwpb70gs0s" path="res://laser_beam.tscn" id="1_s3yh7"]
+[ext_resource type="Script" path="res://Ship.gd" id="1_slxyb"]
+[ext_resource type="Texture2D" uid="uid://dw74labmpt5on" path="res://Assets/topdown-player.svg" id="2_l710b"]
+[ext_resource type="Texture2D" uid="uid://djybigrduaqgj" path="res://Assets/asteroid.svg" id="4_hnlej"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uvxll"]
+radius = 105.0
+
+[sub_resource type="Environment" id="Environment_kt64s"]
+background_mode = 3
+glow_enabled = true
+glow_strength = 1.05
+glow_bloom = 0.15
+glow_blend_mode = 0
+
+[node name="LaserScene" type="Node2D"]
+
+[node name="Ship" type="Node2D" parent="."]
+position = Vector2(117, 321)
+script = ExtResource("1_slxyb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ship"]
+rotation = 1.5708
+texture = ExtResource("2_l710b")
+
+[node name="LaserBeam" parent="Ship" instance=ExtResource("1_s3yh7")]
+unique_name_in_owner = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(969, 151)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_uvxll")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("4_hnlej")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(969, 489)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("CircleShape2D_uvxll")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+texture = ExtResource("4_hnlej")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(568, 31)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("CircleShape2D_uvxll")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+texture = ExtResource("4_hnlej")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kt64s")
